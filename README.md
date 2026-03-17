@@ -139,6 +139,6 @@ url={https://openreview.net/forum?id=1spGpYmDjy},
 }
 ```
 
-## Citation
+## License
 
 Apache-2.0
