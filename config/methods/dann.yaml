@@ -1,0 +1,5 @@
+trainer:
+  loss: dann 
+  loss_uses_domain: true
+  loss_uses_features: true
+

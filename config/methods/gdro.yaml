@@ -1,0 +1,4 @@
+trainer:
+  loss: gdro 
+  loss_uses_domain: true
+  gdro_eta: 0.01

@@ -1,0 +1,81 @@
+# === ExperimentInfo === # 
+experiment_name: "baseline" 
+description: "Baseline experiment to demonstrate the applicability
+              of hyperbolic embeddings in Medical Image Analysis"
+
+
+# === DataConfig === # 
+data:
+  # Dataset
+  dataset: "breastmnist"
+  mode: "emb"
+  augmentation: null
+  target_domain: null
+  data_root: "assets/data"          
+  database_root: "assets/database"
+  
+  # Dataloading
+  batch_size: 64
+  num_workers: 0
+
+
+# === ModelConfig === # 
+model:                      
+  # Backbone
+  backbone_id: "dinov2_small"
+  freeze_backbone: true
+
+  # Head
+  manifold: "hyp" # hyp or euc
+  branch1_dim: 128
+  branch2_dim: null
+  
+  # Hyperbolic hparams
+  hyp_curvature: 1.0    
+  hyp_clip_r: 1.0
+
+  # Feature extraction
+  extract_features_only: false    # simply extract embeddings and store them on disk
+  extract_projections: true
+
+
+# === Trainer === # 
+trainer:
+  max_epochs: 500
+  loss: "ce" # or dist
+  loss_uses_domain: null
+  dist_lam: null # 0.2 # Set if loss == dist
+  dist_temp: null # 3.0 # Set if loss == dist
+  
+  # Monitoring performance
+  monitor: "loss"
+  monitor_mode: "min"
+
+  # Early stopping
+  patience: 10
+  min_delta: 0.0001
+
+  # Directories
+  output_root: "./assets/output"   # Store logs and checkpoints at output_dir / exp / run_id / *
+
+  # Runtime
+  seed: 3840069
+  device: "cuda:0"
+  use_wandb: true
+
+  # Skip training (eval only)
+  skip_train: false
+
+  # Ablation hparams
+  eval_domain_accuracy: false # if true, requires extract_projections=true
+
+
+# === Optimizer === # 
+optimizer:
+  name: "adamw"
+  lr: 0.0001
+  weight_decay: 0.1
+  
+  # Scheduler
+  scheduler: "cosine"
+  min_lr: 0.000001

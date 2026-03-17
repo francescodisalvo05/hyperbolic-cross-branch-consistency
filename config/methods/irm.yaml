@@ -1,0 +1,5 @@
+trainer:
+  loss: irm 
+  loss_uses_domain: true
+  irm_lambda: 100
+  irm_anneal_iters: 500

@@ -1,0 +1,3 @@
+trainer:
+  loss: ce 
+  loss_uses_domain: false

@@ -1,0 +1,5 @@
+trainer:
+  loss: mmd 
+  loss_uses_domain: true
+  loss_uses_features: true
+  mmd_gamma: 1.0

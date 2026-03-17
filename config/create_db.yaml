@@ -1,0 +1,25 @@
+experiment_name: "create_db" 
+description: "Store persistent embeddings on disk. 
+              Avoid redundant forward passes over the backbone."
+
+# === DataConfig === # 
+data:
+  # Dataset
+  dataset: "pneumoniamnist"
+  mode: "raw"
+  augmentation: null
+  augmentation_factor: null
+  noise: null
+  target_domain: null
+  data_root: "assets/data"          
+  database_root: "assets/database"
+  
+  # Dataloading
+  batch_size: 512
+  num_workers: 0
+
+
+# === ModelConfig === # 
+model:                      
+  backbone_id: "dinov2_small"
+  device: "cuda:0"

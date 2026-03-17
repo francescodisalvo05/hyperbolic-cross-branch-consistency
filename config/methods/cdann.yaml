@@ -1,0 +1,5 @@
+trainer:
+  loss: cdann 
+  loss_uses_domain: true
+  loss_uses_features: true
+

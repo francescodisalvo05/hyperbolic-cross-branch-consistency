@@ -1,0 +1,5 @@
+trainer:
+  loss: vrex 
+  loss_uses_domain: true
+  vrex_lambda: 1
+  vrex_anneal_iters: 500

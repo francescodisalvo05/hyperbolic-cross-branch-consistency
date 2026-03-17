@@ -1,0 +1,9 @@
+model:
+  branch1_dim: 128
+  branch2_dim: 2
+
+trainer:
+  loss: dist 
+  loss_uses_domain: false
+  dist_lam: 0.2
+  dist_temp: 3.0 
